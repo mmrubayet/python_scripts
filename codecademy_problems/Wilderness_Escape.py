@@ -7,6 +7,9 @@ class TreeNode:
   def __init__(self, story_piece):
     self.story_piece = story_piece
     self.choices = []
+    
+  def add_child(self, node):
+    self.choices.append(node)
 
 ######
 # VARIABLES FOR TREE
