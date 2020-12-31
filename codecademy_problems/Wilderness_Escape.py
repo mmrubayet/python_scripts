@@ -11,6 +11,19 @@ class TreeNode:
   def add_child(self, node):
     self.choices.append(node)
 
+  def traverse(self):
+    # assign story_node to self
+    # print out story_node's story_piece
+    # while story_node has choices:
+      # get the user's choice using input()
+      # if the choice is invalid
+        # tell the user
+      # if the choice is valid
+        # set choice as the new story_node
+    story_node = self
+    print(story_node.story_piece)
+
+
 
 ######
 # VARIABLES FOR TREE
@@ -61,4 +74,4 @@ print(f"\nWelcome {user_choice}!")
 # TESTING AREA
 ######
 
-print(story_root.choices[1].story_piece)
+story_root.traverse()
