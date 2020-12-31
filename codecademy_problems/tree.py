@@ -6,18 +6,23 @@ class TreeNode:
     self.children = []
 
   def add_child(self, child_node):
-    print("Adding " + child_node.value)
+    print(f"Adding {child_node.value}")
     self.children.append(child_node)
 
   def remove_child(self, child_node):
     print(f"Removing {child_node.value} from {self.value}")
-    self.children = [ child for child in self.children if child != child_node ]
+    self.children = [child for child in self.children if child is not child_node]
 
-root = TreeNode("I am Root")
-child = TreeNode("A wee sappling")
-bad_seed = TreeNode("Root Rot!")
+  def traverse(self):
+    print(self.value)
+    for child in self.children:
+      print(child.value)
 
-root.add_child(child)
-root.add_child(bad_seed)
+root = TreeNode("CEO")
+first_child = TreeNode("Vice-President")
+second_child = TreeNode("Head of Marketing")
 
-root.remove_child(bad_seed)
+root.add_child(first_child)
+root.add_child(second_child)
+
+root.traverse()
