@@ -12,17 +12,19 @@ class TreeNode:
     self.choices.append(node)
 
   def traverse(self):
-    # assign story_node to self
-    # print out story_node's story_piece
-    # while story_node has choices:
-      # get the user's choice using input()
-      # if the choice is invalid
-        # tell the user
-      # if the choice is valid
-        # set choice as the new story_node
-    story_node = self
-    print(story_node.story_piece)
+    story_node = self   # assign story_node to self
+    print(story_node.story_piece)   # print out story_node's story_piece
 
+    while story_node.choices != []:   # while story_node has choices:
+      choice = int(input("Enter 1 or 2 to continue the story: "))    # get the user's choice using input()
+      if not choice in [1, 2]:    # if the choice is invalid
+        print("Invalid Choice! Please enter 1 or 2: ")    # tell the user
+      else:      # if the choice is valid
+        chosen_index = choice - 1
+        chosen_child = story_node.choices[chosen_index]
+        print(chosen_child.story_piece)
+
+        story_node = chosen_child     # set choice as the new story_node
 
 
 ######
