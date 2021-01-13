@@ -20,6 +20,16 @@ class MinHeap:
     self.count += 1
     self.heap_list.append(element)
     self.heapify_up()
-
+    
   def heapify_up(self):
-    print("Heapifying up...")
+    print("Heapifying up")
+    idx = self.count
+    while self.parent_idx(idx) > 0:
+      child = self.heap_list[idx]
+      parent = self.heap_list[self.parent_idx(idx)]
+      if parent > child:
+        print(f"swapping {parent} with {child}")
+        self.heap_list[idx] = parent
+        self.heap_list[self.parent_idx(idx)] = child
+      idx = self.parent_idx(idx)
+      print(f"Heap restored {self.heap_list}")
