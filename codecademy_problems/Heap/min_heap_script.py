@@ -1,4 +1,19 @@
-# import random number generator
+# import heap class
+from min_heap import MinHeap
+
+# make an instance of MinHeap
+min_heap = MinHeap()
+
+# add elements
+min_heap.add(7)
+min_heap.add(12)
+min_heap.add(42)
+
+# remove minimum element
+print(min_heap.retrieve_min())
+
+
+'''# import random number generator
 from random import randrange
 # import heap class
 from min_heap import MinHeap
@@ -14,7 +29,7 @@ for el in random_nums:
 
 # test it out, is the minimum number at index 1?
 print(min_heap.heap_list)
-
+'''
 
 '''# importing heap class
 from min_heap import MinHeap
