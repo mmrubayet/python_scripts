@@ -25,7 +25,14 @@ class MinHeap:
     self.heap_list.pop()
     self.count -= 1
     print(f'Last element moved to first: {self.heap_list}')
+    self.heapify_down()
     return min
+
+
+  def heapify_down(self):
+    print("Heapifying down!")
+    idx = 1
+    
 
   def add(self, element):
     print(f"Adding {element} to {self.heap_list}")
