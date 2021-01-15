@@ -29,6 +29,20 @@ class Graph:
       print(f"\nYou have accumulated: {path_total} cost")
       choice = input("\nWhich room do you move to? ")
 
+      if choice not in valid_choices:
+        print(f"please select from these letters: {valid_choices}")
+      else:
+        for room in node.edges.keys():
+          if room.startswith(choice):
+            current_room = room
+            path_total += node.edges[room]
+
+        print(f"\n*** You have chosen: {current_room} ***\n")
+
+    print(f"Made it to the treasure room with {path_total} cost")
+
+
+
 
 
   def print_map(self):
