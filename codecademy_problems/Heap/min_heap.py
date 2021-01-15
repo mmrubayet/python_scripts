@@ -12,13 +12,13 @@ class MinHeap:
 
   def right_child_idx(self, idx):
     return idx * 2 + 1
-
   # END OF HEAP HELPER METHODS
 
   def retrieve_min(self):
     if self.count == 0:
       print("No items in heap")
-      return
+      return None
+      
     min = self.heap_list[1]
     print(f'Removing: {min} from {self.heap_list}')
     self.heap_list[1] = self.heap_list[self.count]
@@ -29,16 +29,32 @@ class MinHeap:
     return min
 
 
-  def heapify_down(self):
-    print("Heapifying down!")
-    idx = 1
-    
-
   def add(self, element):
     print(f"Adding {element} to {self.heap_list}")
     self.count += 1
     self.heap_list.append(element)
     self.heapify_up()
+
+
+  def heapify_down(self):
+    print("Heapifying down!")
+    idx = 1
+
+
+  def get_smaller_child_idx(self, idx):
+    if self.right_child_idx(idx) > self.count:
+      print("There is only a left child")
+      return self.left_child_idx(idx)
+    else:
+      left_child = self.heap_list[self.left_child_idx(idx)]
+      right_child = self.heap_list[self.right_child_idx(idx)]
+      if left_child < right_child:
+        print("Left child is smaller")
+        return self.left_child_idx(idx)
+      else:
+        print("Right child is smaller")
+        return self.right_child_idx(idx)
+
 
   def heapify_up(self):
     print("Heapifying up")
