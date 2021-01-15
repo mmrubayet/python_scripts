@@ -14,6 +14,21 @@ class Graph:
   def explore(self):
     print("Exploring the graph....\n")
     #FILL IN EXPLORE METHOD BELOW
+    current_room = 'entrance'
+    path_total = 0
+
+    print(f"\nStarting off at the {current_room}\n")
+
+    while current_room != 'treasure room':
+      node = self.graph_dict[current_room]
+
+      for connected_room, weight in node.edges.items():
+        key = connected_room[0]
+        print(f"enter {key} for {connected_room}: {weight} cost")
+      valid_choices = [room[:1] for room in node.edges.keys()]
+      print(f"\nYou have accumulated: {path_total} cost")
+      choice = input("\nWhich room do you move to? ")
+
 
 
   def print_map(self):
@@ -46,6 +61,7 @@ def build_graph():
 
   treasure_room = Vertex("treasure room")
   graph.add_vertex(treasure_room)
+
 
   # ADD EDGES BETWEEN ROOMS BELOW...
   graph.add_edge(entrance, ante_chamber, 7)
