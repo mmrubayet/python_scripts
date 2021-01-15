@@ -10,7 +10,7 @@ class Vertex:
   def get_edges(self):
     return list(self.edges.keys())
 
-
+'''
 grand_central = Vertex('Grand Central Station')
 forty_second_street = Vertex('42nd Street Station')
 
@@ -19,3 +19,4 @@ print(grand_central.get_edges())
 grand_central.add_edge(forty_second_street.value)
 
 print(grand_central.get_edges())
+'''
