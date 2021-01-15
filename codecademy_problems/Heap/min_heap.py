@@ -18,7 +18,7 @@ class MinHeap:
     if self.count == 0:
       print("No items in heap")
       return None
-      
+
     min = self.heap_list[1]
     print(f'Removing: {min} from {self.heap_list}')
     self.heap_list[1] = self.heap_list[self.count]
@@ -37,8 +37,18 @@ class MinHeap:
 
 
   def heapify_down(self):
-    print("Heapifying down!")
     idx = 1
+    while self.child_present(idx):
+      print("Heapifying down!")
+      smaller_child_idx = self.get_smaller_child_idx(idx)
+      child = self.heap_list[smaller_child_idx]
+      parent = self.heap_list[idx]
+
+      if parent > child:
+        self.heap_list[idx] = child
+        self.heap_list[smaller_child_idx] = parent
+      idx = smaller_child_idx
+    print(f"Heap Restored! {self.heap_list}")
 
 
   def get_smaller_child_idx(self, idx):

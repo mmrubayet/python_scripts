@@ -1,3 +1,21 @@
+# import heap class
+from min_heap import MinHeap
+
+# make an instance of MinHeap
+min_heap = MinHeap()
+
+# set internal list for testing purposes...
+min_heap.heap_list = [None, 10, 13, 21, 61, 22, 23, 99]
+min_heap.count = 7
+
+while len(min_heap.heap_list) != 1:
+  print(min_heap.heap_list)
+  min_heap.retrieve_min()
+
+
+
+'''
+EX: 8
 # import random number generator
 from random import randrange
 # import heap class
@@ -24,10 +42,10 @@ print("The smaller child of index 3 is: ")
 smaller_child_of_idx_3 = min_heap.get_smaller_child_idx(3)
 smaller_child_element = min_heap.heap_list[smaller_child_of_idx_3]
 print(smaller_child_element)
-
+'''
 
 '''
-EX: 8
+EX: 7
 # import heap class
 from min_heap import MinHeap
 
@@ -44,7 +62,7 @@ print(min_heap.retrieve_min())
 '''
 
 '''
-EX: 7
+EX: 6
 # import random number generator
 from random import randrange
 # import heap class
