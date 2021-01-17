@@ -1,4 +1,4 @@
-import codecademylib
+# import codecademylib
 import pandas as pd
 
 df2 = pd.DataFrame([
