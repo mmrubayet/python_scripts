@@ -12,6 +12,6 @@ df = pd.DataFrame([
            'clinic_north', 'clinic_south',
            'clinic_west'])
 
+january_february_march = df[df.month.isin(['January', 'February', 'March'])]
 
-march_april = df[(df.month == 'March') | (df.month == 'April')]
-print(march_april)
+print(january_february_march)
