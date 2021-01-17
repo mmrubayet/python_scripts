@@ -1,2 +1,1 @@
-mylambda = lambda x : x[0] + x[-1]
-print(mylambda('This is a string'))
+mylambda = lambda x : 'Welcome to BattleCity!' if x >= 13 else 'You must be over 13'
