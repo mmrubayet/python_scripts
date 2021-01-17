@@ -1,7 +1,7 @@
 import codecademylib
 import pandas as pd
 
-orders = pd.read_csv('orders.csv')
+orders = pd.read_csv('orders_2.csv')
 print(orders)
 products = pd.read_csv('products.csv')
 print(products)
