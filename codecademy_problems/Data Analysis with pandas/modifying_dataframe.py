@@ -10,6 +10,6 @@ df = pd.DataFrame([
   columns=['Product ID', 'Description', 'Cost to Manufacture', 'Price']
 )
 
-# Add columns here
+df['Sold in Bulk?'] = ['Yes', 'Yes', 'No', 'No']
 
 print(df)
