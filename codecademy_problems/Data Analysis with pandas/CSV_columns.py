@@ -10,8 +10,13 @@ df = pd.DataFrame([
   ['June', 112, 109, 79, 129]],
   columns=['month', 'clinic_east',
            'clinic_north', 'clinic_south',
-           'clinic_west'])
+           'clinic_west']
+)
 
-january_february_march = df[df.month.isin(['January', 'February', 'March'])]
+df2 = df.loc[[1, 3, 5]]
 
-print(january_february_march)
+print(df2)
+
+df3 = df2.reset_index(inplace=True, drop=True)
+
+print(df3)
