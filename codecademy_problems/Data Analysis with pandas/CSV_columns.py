@@ -10,9 +10,8 @@ df = pd.DataFrame([
   ['June', 112, 109, 79, 129]],
   columns=['month', 'clinic_east',
            'clinic_north', 'clinic_south',
-           'clinic_west']
-)
+           'clinic_west'])
 
-april_may_june = df.iloc[3:]
+january = df[df.month == 'January']
 
-print(april_may_june)
+print(january)
