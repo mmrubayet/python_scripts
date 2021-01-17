@@ -13,24 +13,6 @@ df = pd.DataFrame([
            'clinic_west']
 )
 
-# print(df)
-clinic_north = df['clinic_north'] # clinic_north = df.clinic_north
+april_may_june = df.iloc[3:]
 
-# print(clinic_north)
-# print(df)
-
-# print(type(clinic_north))
-# print(type(df))
-
-clinic_north_south = df[['clinic_north', 'clinic_south']]
-
-# print(clinic_north_south)
-# print(type(clinic_north_south))
-
-march = df.iloc[2]
-
-print(march)
-# print(df)
-
-# print(type(march))
-# print(type(df))
+print(april_may_june)
