@@ -1,4 +1,4 @@
-import codecademylib
+
 import pandas as pd
 
 df = pd.DataFrame([
@@ -15,8 +15,8 @@ df = pd.DataFrame([
 
 df2 = df.loc[[1, 3, 5]]
 
-print(df2)
+#print(df2)
 
-df3 = df2.reset_index(inplace=True, drop=True)
+df3 = df2.reset_index( drop=True)
 
 print(df3)
