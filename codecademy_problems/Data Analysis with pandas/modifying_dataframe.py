@@ -12,4 +12,6 @@ df = pd.DataFrame([
 
 df['Sold in Bulk?'] = ['Yes', 'Yes', 'No', 'No']
 
+df['Is taxed?'] = ['Yes','Yes','Yes','Yes']
+
 print(df)
