@@ -1,4 +1,4 @@
-import codecademylib
+# import codecademylib
 import pandas as pd
 
 orders = pd.read_csv('shoefly.csv')
