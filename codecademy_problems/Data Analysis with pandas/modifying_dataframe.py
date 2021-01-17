@@ -14,4 +14,6 @@ df['Sold in Bulk?'] = ['Yes', 'Yes', 'No', 'No']
 
 df['Is taxed?'] = ['Yes','Yes','Yes','Yes']
 
+df['Margin'] = df['Price'] - df['Cost to Manufacture']
+
 print(df)
