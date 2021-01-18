@@ -19,6 +19,26 @@ ratings = []
 
 for tag in rating_tag[1:]:
   ratings.append(float(tag.get_text()))
+# print(ratings)
+# plt.hist(ratings)
+# plt.show()
 
-plt.hist(ratings)
-plt.show()
+all_company_tag = soup.select(".Company")
+# print(all_company_tag)
+
+companies = []
+
+for tag in all_company_tag[1:]:
+  companies.append(tag.get_text())
+
+# print(companies)
+
+d = {"Company Name": companies, "Rating": ratings}
+chdf = pd.DataFrame.from_dict(d)
+
+# print(chdf.head(10))
+
+mean_vals = chdf.groupby("Company Name").Rating.mean()
+# print(mean_vals.head(10))
+ten_best = mean_vals.nlargest(10)
+print(ten_best)
