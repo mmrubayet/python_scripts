@@ -41,4 +41,25 @@ chdf = pd.DataFrame.from_dict(d)
 mean_vals = chdf.groupby("Company Name").Rating.mean()
 # print(mean_vals.head(10))
 ten_best = mean_vals.nlargest(10)
-print(ten_best)
+# print(ten_best)
+
+cocoa_percents = []
+cocoa_percent_tags = soup.select(".CocoaPercent")
+
+for td in cocoa_percent_tags[1:]:
+  percent = float(td.get_text().strip('%'))
+  cocoa_percents.append(percent)
+
+chdf['CocoaPercentage'] = cocoa_percents
+
+# print(chdf.head(10))
+
+plt.scatter(chdf.CocoaPercentage, chdf.Rating)
+plt.show()
+
+
+z = np.polyfit(chdf.CocoaPercentage, chdf.Rating, 1)
+line_function = np.poly1d(z)
+plt.plot(chdf.CocoaPercentage, line_function(chdf.CocoaPercentage), "r--")
+
+plt.show()
