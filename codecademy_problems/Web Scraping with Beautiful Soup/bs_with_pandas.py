@@ -33,4 +33,16 @@ for link in links:
 
 turtle_df = pd.DataFrame.from_dict(turtle_data, orient='index')
 
-print(turtle_df.head(10))
+# print(turtle_df.head(10))
+turtle_df = turtle_df.reset_index()
+turtle_df.columns = ['name', 'age','weight_lbs','sex','breed','source']
+
+
+turtle_df['age'] = turtle_df['age'].str.extract('(\d+)').apply(pd.to_numeric)
+turtle_df['weight_lbs'] = turtle_df['weight_lbs'].str.extract('(\d+)').apply(pd.to_numeric)
+
+turtle_df['sex'] = turtle_df['sex'].str.split().str[-1]
+turtle_df['breed'] = turtle_df['breed'].str.split(':').str[-1]
+turtle_df['source'] = turtle_df['source'].str.split(':').str[-1]
+
+print(turtle_df.head())
