@@ -16,13 +16,14 @@ class LinkedList:
     string_list = ""
     current_node = self.head_node
     while current_node:
-      string_list += str(current_node.value) + "\n"
+      if current_node.value != None:
+      	string_list += str(current_node.value) + "\n"
       current_node = current_node.get_next_node()
     return string_list
 
   def remove_node(self, value_to_remove):
     current_node = self.head_node
-    if current_node.get_value() == node_to_remove:
+    if current_node.get_value() == value_to_remove:
       self.head_node = current_node.get_next_node()
     else:
       while current_node:
