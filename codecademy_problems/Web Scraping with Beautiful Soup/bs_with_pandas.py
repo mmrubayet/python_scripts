@@ -22,9 +22,15 @@ for link in links:
   turtle_name = turtle.select(".name")[0].get_text()
 
   stats = turtle.find("ul")
-  stats_text = stats.get_text("|")
-  turtle_data[turtle_name] = stats_text.split("|")
+  stats_text = stats.get_text("|").split("|")
+  di = []
+  for data in stats_text:
+      if data != '\n':
+          di.append(data.strip())
+
+  turtle_data[turtle_name] = di
+
 
 turtle_df = pd.DataFrame.from_dict(turtle_data, orient='index')
 
-print(turtle_df)
+print(turtle_df.head(10))
