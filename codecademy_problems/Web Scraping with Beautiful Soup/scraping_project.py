@@ -11,3 +11,14 @@ webpage = requests.get("https://content.codecademy.com/courses/beautifulsoup/cac
 
 soup = bs(webpage.content, "html.parser")
 # print(soup)
+
+rating_tag = soup.find_all(attrs={"class": "Rating"})
+# print(rating_tag)
+
+ratings = []
+
+for tag in rating_tag[1:]:
+  ratings.append(float(tag.get_text()))
+
+plt.hist(ratings)
+plt.show()
