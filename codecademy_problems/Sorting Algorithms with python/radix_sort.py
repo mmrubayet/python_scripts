@@ -11,3 +11,10 @@ def radix_sort(to_be_sorted):
     digit = int(digit)
 
     digits[digit].append(number)
+
+  being_sorted = []
+
+  for numeral in digits:
+    being_sorted.extend(numeral)
+
+  return being_sorted
