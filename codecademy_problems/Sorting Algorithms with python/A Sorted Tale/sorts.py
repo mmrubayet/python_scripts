@@ -1,12 +1,12 @@
 import random
 
-def bubble_sort(arr):
+def bubble_sort(arr, comparison_function):
   swaps = 0
   sorted = False
   while not sorted:
     sorted = True
     for idx in range(len(arr) - 1):
-      if arr[idx] > arr[idx + 1]:
+      if comparison_function(arr[idx], arr[idx + 1]):
         sorted = False
         arr[idx], arr[idx + 1] = arr[idx + 1], arr[idx]
         swaps += 1
