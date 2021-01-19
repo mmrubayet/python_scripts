@@ -14,4 +14,11 @@ def sparse_search(data, search_val):
         if left < first and right > last:
           print(f"{search_val} is not in the dataset")
           return
-      elif right <= last and data[right]:
+        elif right <= last and data[right]:
+          mid = right
+          break
+        elif left >= first and data[left]:
+          mid = left
+          break
+        right += 1
+        left += 1
