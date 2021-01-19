@@ -22,3 +22,15 @@ def sparse_search(data, search_val):
           break
         right += 1
         left += 1
+
+      if mid == search_val:
+        print(f"{search_val } found at position {mid}")
+        return
+
+      if search_val < data[mid]:
+        last = mid - 1
+
+      if search_val > data[mid]:
+        first = mid + 1
+
+  print(f"{search_val} is not in the dataset")
