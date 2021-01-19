@@ -1,5 +1,5 @@
 def bfs(graph, start_vertex, target_value):
   path = [start_vertex]
-  return path
-
-print(bfs(None, "lava!", None))
+  vertex_and_path = [start_vertex, path]
+  bfs_queue = [vertex_and_path]
+  visited = set()
