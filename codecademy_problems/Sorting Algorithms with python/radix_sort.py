@@ -11,7 +11,12 @@ def radix_sort(to_be_sorted):
 
     for number in being_sorted:
       number_as_a_string = str(number)
-      digit = number_as_a_string[index]
+
+      try:
+        digit = number_as_a_string[index]
+      except IndexError:
+        digit = 0
+
       digit = int(digit)
 
       digits[digit].append(number)
@@ -21,3 +26,7 @@ def radix_sort(to_be_sorted):
       being_sorted.extend(numeral)
 
   return being_sorted
+
+unsorted_list = [830, 921, 163, 373, 961, 559, 89, 199, 535, 959, 40, 641, 355, 689, 621, 183, 182, 524, 1]
+
+print(radix_sort(unsorted_list))
