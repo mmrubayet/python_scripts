@@ -17,10 +17,14 @@ sort_1 = sorts.bubble_sort(bookshelf, by_title_ascending)
 
 for book in sort_1:
   print(book['title'])
-'''
+
 
 bookshelf_v1 = bookshelf.copy()
-sort_2 = sorts.bubble_sort(bookshelf, by_author_ascending)
+sort_2 = sorts.bubble_sort(bookshelf_v1, by_author_ascending)
 
 for book in sort_2:
   print(book['title'])
+'''
+
+bookshelf_v2 = bookshelf.copy()
+sort_3 = sorts.quicksort(bookshelf_v2, 0, len(bookshelf_v2) - 1, by_author_ascending)
