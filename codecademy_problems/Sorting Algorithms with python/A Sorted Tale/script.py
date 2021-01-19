@@ -23,7 +23,8 @@ long_bookshelf = utils.load_books('books_large.csv')
 
 sort_1 = sorts.bubble_sort(bookshelf, by_title_ascending)
 sort_2 = sorts.bubble_sort(bookshelf, by_author_ascending)
-sort_3 = sorts.bubble_sort(long_bookshelf, by_total_length)
+# sort_3 = sorts.bubble_sort(long_bookshelf, by_total_length)
+
 '''
 for book in sort_1:
   print(book['title'])
@@ -37,5 +38,6 @@ for book in bookshelf_v2:
 
 '''
 
-for book in sort_3:
+sorts.quicksort(long_bookshelf, 0, len(long_bookshelf) - 1, by_total_length)
+for book in long_bookshelf:
   print(len(book['author_lower']) + len(book['title_lower']) )
