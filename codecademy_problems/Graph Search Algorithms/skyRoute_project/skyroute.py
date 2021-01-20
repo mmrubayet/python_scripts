@@ -9,19 +9,46 @@ for letter, landmark in landmark_choices.items():
 
 def greet():
   print("Hi there and welcome to SkyRoute!")
-  print("We'll help you find the shortest route between the following \
-  Vancouver landmarks:\n" + landmark_string)
+  print("We'll help you find the shortest route between the following\
+  \nVancouver landmarks:\n" + landmark_string)
 
 
 def skyroute():
   greet()
 
-skyroute()
+
+def get_start():
+  start_point_letter = input("Where are you coming from? \
+  \nType in the corresponding letter: ")
+
+  if start_point_letter in landmark_choices:
+    start_point = landmark_choices[start_point_letter]
+    return start_point
+
+  else:
+    print("Sorry, that's not a landmark we have data on. \
+    \nLet's try this again...")
+    get_start()
+
+
+def get_end():
+  end_point_letter = input("Ok, where are you headed? \
+  \nType in the corresponding letter: ")
+
+  if end_point_letter in landmark_choices:
+    end_point = landmark_choices[end_point_letter]
+    return end_point
+
+  else:
+    print("Sorry, that's not a landmark we have data on. \
+    \nLet's try this again...")
+    get_end()
+
 
 def set_start_and_end(start_point, end_point):
   if start_point:
     change_point = input("What would you like to change? You can \
-    enter 'o' for 'origin', 'd' for 'destination', or 'b' for 'both': ")
+    \nenter 'o' for 'origin', 'd' for 'destination', or 'b' for 'both': ")
     if change_point == 'b':
       start_point = get_start()
       end_point = get_end()
@@ -36,30 +63,30 @@ def set_start_and_end(start_point, end_point):
   else:
     start_point = get_start()
     end_point = get_end()
+
   return start_point, end_point
 
 
-def get_start():
-  start_point_letter = input("Where are you coming from? \
-  Type in the corresponding letter: ")
-  if start_point_letter in landmark_choices:
-    start_point = landmark_choices[start_point_letter]
-    return start_point
-  else:
-    print("Sorry, that's not a landmark we have data on. \
-    Let's try this again...")
-    get_start()
+def new_route(start_point = None, end_point = None):
+  start_point, end_point = set_start_and_end(start_point, end_point)
+
+def get_route(start_point, end_point):
+  start_stations = vc_landmarks[start_point]
+  end_stations = vc_landmarks[end_point]
+  routes = []
+  for start_station in start_stations:
+    for end_station in end_stations:
+      route = bfs(vc_metro, start_station, end_station)
+      if route:
+        routes.append(route)
+  shortest_route = min(routes, key=len)
+  return shortest_route
 
 
-def get_end():
-  end_point_letter = input("Ok, where are you headed? \
-  Type in the corresponding letter: ")
-  if end_point_letter in landmark_choices:
-    end_point = landmark_choices[end_point_letter]
-    return end_point
-  else:
-    print("Sorry, that's not a landmark we have data on. \
-    Let's try this again...")
-    get_end()
+print(get_route('Science World','Granville Street'))
 
-print(set_start_and_end(None, None))
+
+# print(set_start_and_end(None, None))
+
+
+# skyroute()
