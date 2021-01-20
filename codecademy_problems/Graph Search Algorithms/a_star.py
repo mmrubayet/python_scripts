@@ -1,12 +1,12 @@
-from math import inf
+from math import inf, sqrt
 from heapq import heappop, heappush
-from manhattan_graph import manhattan_graph, penn_station, grand_central_station
+from euclidean_graph import euclidean_graph, bengaluru, jaipur
 
-# Define heuristic below:
+# Change heuristic() below:
 def heuristic(start, target):
   x_distance = abs(start.position[0] - target.position[0])
   y_distance = abs(start.position[1] - target.position[1])
-  return x_distance + y_distance
+  return sqrt(x_distance**2 + y_distance**2)
 
 def a_star(graph, start, target):
   print("Starting A* algorithm!")
@@ -34,6 +34,5 @@ def a_star(graph, start, target):
 
   return paths_and_distances[target][1]
 
-# Call a_star() on manhattan_graph to find the best route
-# from penn_station to grand_central_station:
-a_star(manhattan_graph, penn_station, grand_central_station)
+
+a_star(euclidean_graph, jaipur, bengaluru)
