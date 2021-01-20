@@ -1,20 +1,20 @@
 from math import inf
 from heapq import heappop, heappush
 
-def a_star(graph, start):
-  distances = {}
+def a_star(graph, start, target):
+  paths_and_distances = {}
   for vertex in graph:
-    distances[vertex] = inf
+    paths_and_distances[vertex] = [inf, [start.name]]
 
-  distances[start] = 0
+  paths_and_distances[start] = 0
   vertices_to_explore = [(0, start)]
 
   while vertices_to_explore:
     current_distance, current_vertex = heappop(vertices_to_explore)
     for neighbor, edge_weight in graph[current_vertex]:
       new_distance = current_distance + edge_weight
-      if new_distance < distances[neighbor]:
-        distances[neighbor] = new_distance
+      if new_distance < paths_and_distances[neighbor]:
+        paths_and_distances[neighbor] = new_distance
         heappush(vertices_to_explore, (new_distance, neighbor))
 
-  return distances
+  return paths_and_distances
