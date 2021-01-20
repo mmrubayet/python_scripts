@@ -4,7 +4,7 @@ from vc_landmarks import vc_landmarks
 from landmark_choices import landmark_choices
 
 landmark_string = ""
-stations_under_construction = ['Lansdowne', 'Bridgeport']
+stations_under_construction = []
 
 for letter, landmark in landmark_choices.items():
   landmark_string += "{0} - {1}\n".format(letter, landmark)
@@ -72,7 +72,12 @@ def get_route(start_point, end_point):
   routes = []
   for start_station in start_stations:
     for end_station in end_stations:
-      route = bfs(vc_metro, start_station, end_station)
+      metro_system = get_active_stations() if stations_under_construction else vc_metro
+      if not stations_under_construction:
+        possible_route = dfs(metro_system, start_station, end_station)
+        if not possible_route:
+          return None
+      route = bfs(metro_system, start_station, end_station)
       if route:
         routes.append(route)
   shortest_route = min(routes, key=len)
@@ -118,6 +123,4 @@ def get_active_stations():
 # print(set_start_and_end(None, None))
 
 
-# skyroute()
-
-print(get_active_stations())
+skyroute()
